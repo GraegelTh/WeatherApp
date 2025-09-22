@@ -49,7 +49,7 @@ Enter a city (e.g. `Augsburg`) or German postal code (`86150`) and press **Enter
 
 ##  Screenshots
 
-
+<img width="1264" height="632" alt="Screenshot 2025-09-22 115112" src="https://github.com/user-attachments/assets/33955a1d-68a8-4dd1-b811-1efc6f9e2b91" />
 
 ---
 
