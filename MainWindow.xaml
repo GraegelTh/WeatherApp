@@ -1,0 +1,150 @@
+﻿<Window x:Class="WeatherApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WeatherApp" Height="512" Width="1024" ResizeMode="NoResize">
+
+    <Grid TextOptions.TextFormattingMode="Display">
+
+        
+        <Grid.Resources>
+            <DropShadowEffect x:Key="ShadowStrong" BlurRadius="6" ShadowDepth="0" Opacity="0.85"/>
+            <DropShadowEffect x:Key="ShadowMedium" BlurRadius="4" ShadowDepth="0" Opacity="0.75"/>
+        </Grid.Resources>
+
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="24"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72"/>
+            <!-- search -->
+            <RowDefinition/>
+            <!-- main -->
+            <RowDefinition Height="150"/>
+            <!-- details -->
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush x:Name="mainBackground"
+                        ImageSource="pack://application:,,,/Images/Sun.png"
+                        Stretch="UniformToFill"/>
+        </Grid.Background>
+
+               
+       
+
+        
+        <Border Grid.Row="0" Grid.Column="1"
+                Margin="0,16,0,8"
+                Padding="4"
+                CornerRadius="20"
+                Background="#F2FFFFFF">
+            <DockPanel LastChildFill="True">
+                
+                <Button x:Name="btnSearch"
+                        DockPanel.Dock="Right"
+                        Click="Button_Click"
+                        Content="Search"
+                        FontSize="18"
+                        Margin="8,0,10,0"
+                        Cursor="Hand"
+                        BorderThickness="0"
+                        Padding="8,4"
+                        Height="36" Width="120"
+                        Background="#FF2B6CB0"
+                        Foreground="White"
+                        IsDefault="True"/>
+                
+                <TextBox x:Name="searchBox"
+                         Text="Augsburg"
+                         FontSize="20"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         VerticalContentAlignment="Center"
+                         Padding="12,0"/>
+            </DockPanel>
+        </Border>
+
+        <!-- main area  -->
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0,12,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="260"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- weather condition box -->
+            <Border Background="#33000000" CornerRadius="16" Padding="8" Margin="0,0,24,0">
+                <StackPanel>
+                    <Label x:Name="labelCity"
+                           Content="City"
+                           FontSize="36"
+                           FontWeight="SemiBold"
+                           Foreground="White"
+                           Margin="0,0,0,8"
+                           Effect="{StaticResource ShadowMedium}"/>
+
+                    <Label x:Name="labelTemp"
+                           Content="30°C"
+                           FontSize="75"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Margin="0,-12,0,0"
+                           Effect="{StaticResource ShadowStrong}"/>
+
+                    <Label x:Name="labelDescription"
+                           Content="Cloudy"
+                           FontSize="28"
+                           Foreground="#FFF0F0F0"
+                           Margin="0,8,0,0"
+                           Effect="{StaticResource ShadowMedium}"/>
+                </StackPanel>
+            </Border>
+
+            <!-- condition icon -->
+            <Border Grid.Column="1"
+                    CornerRadius="16"
+                    Background="#33FFFFFF"
+                    Margin="24"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+                <Image x:Name="conditionIcon"
+                       Stretch="Uniform"
+                       Opacity="0.9"
+                       Margin="16"
+                       Source="pack://application:,,,/Images/Sunicon.png"/>
+            </Border>
+        </Grid>
+
+        <!-- Details -->
+        <Grid Grid.Row="2" Grid.Column="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" CornerRadius="16" Background="#F2FFFFFF" Margin="8" Padding="16">
+                <StackPanel>
+                    <TextBlock Text="Feels like" Foreground="#7A7A7A" FontSize="14"/>
+                    <Label x:Name="labelFeelsLike" Content="29.4°C" FontSize="24" FontWeight="SemiBold"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" CornerRadius="16" Background="#F2FFFFFF" Margin="8" Padding="16">
+                <StackPanel>
+                    <TextBlock Text="Min / Max" Foreground="#7A7A7A" FontSize="14"/>
+                    <Label x:Name="labelMinMax" Content="27°C / 31°C" FontSize="24" FontWeight="SemiBold"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" CornerRadius="16" Background="#F2FFFFFF" Margin="8" Padding="16">
+                <StackPanel>
+                    <TextBlock Text="Humidity" Foreground="#7A7A7A" FontSize="14"/>
+                    <Label x:Name="labelHumidity" Content="60%" FontSize="24" FontWeight="SemiBold"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+    </Grid>
+</Window>
